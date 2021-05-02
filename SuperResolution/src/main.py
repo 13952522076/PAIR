@@ -1,8 +1,7 @@
 import torch
 
 import utility
-# import data
-from .data import Data
+import data
 import model
 import loss
 from option import args
@@ -20,8 +19,7 @@ def main():
         t.test()
     else:
         if checkpoint.ok:
-            # loader = data.Data(args)
-            loader = Data(args)
+            loader = data.Data(args)
             _model = model.Model(args, checkpoint)
             _loss = loss.Loss(args, checkpoint) if not args.test_only else None
             t = Trainer(args, loader, _model, _loss, checkpoint)
