@@ -12,6 +12,8 @@ import torch.utils.data.distributed
 def parse_args():
     """Parameters"""
     parser = argparse.ArgumentParser('training')
+    parser.add_argument('--test_image', type=str, required=True,
+                        help='input image')
     parser.add_argument('--modes', nargs='+', default=['SuperResolution', "Denoising"],
                         choices=["Deblocking", "Denoising", "CompressionArtifactRemoval", "ScratchRemoval",
                                  "FaceEnhancement", "ImageQualityEnhance", "SuperResolution"],
@@ -46,7 +48,8 @@ def call_functions(args):
 
 def call_SuperResolution(args):
     print(f"Processing Super Resolution: Type:{args.SR_type} | Scale:{args.SR_scale}")
-    commands = f"python3 SuperResolution/src/main.py --data_test Demo --scale {args.SR_scale} --pre_train download --test_only --save_results"
+    commands = f"python3 SuperResolution/src/main.py --data_test Demo --scale {args.SR_scale} " \
+               f"--pre_train download --test_only --save_results --test_image {args.test_image}"
     # os.system("cd SuperResolution/src/")
     os.system(commands)
 
