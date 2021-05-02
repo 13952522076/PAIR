@@ -23,6 +23,7 @@ class Demo(data.Dataset):
             if f.find('.png') >= 0 or f.find('.jp') >= 0:
                 self.filelist.append(os.path.join(args.dir_demo, f))
         self.filelist.sort()
+        print(f"xu test: {self.filelist}")
 
     def __getitem__(self, idx):
         filename = os.path.splitext(os.path.basename(self.filelist[idx]))[0]
