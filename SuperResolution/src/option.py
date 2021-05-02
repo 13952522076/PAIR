@@ -21,6 +21,9 @@ parser.add_argument('--seed', type=int, default=1,
 # Data specifications
 parser.add_argument('--dir_data', type=str, default='../../../dataset',
                     help='dataset directory')
+# Xu added
+parser.add_argument('--test_image', type=str, required=True,
+                    help='input image')
 parser.add_argument('--dir_demo', type=str, default='../test',
                     help='demo image directory')
 parser.add_argument('--data_train', type=str, default='DIV2K',

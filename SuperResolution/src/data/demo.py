@@ -18,12 +18,15 @@ class Demo(data.Dataset):
         self.benchmark = benchmark
 
         self.filelist = []
-        for f in os.listdir(args.dir_demo):
-            print(f"xu test: {f}")
-            if f.find('.png') >= 0 or f.find('.jp') >= 0:
-                self.filelist.append(os.path.join(args.dir_demo, f))
+        # Xu updated
+        # for f in os.listdir(args.dir_demo):
+        #     if f.find('.png') >= 0 or f.find('.jp') >= 0:
+        #         self.filelist.append(os.path.join(args.dir_demo, f))
+        # self.filelist.sort()
+        f = args.test_image
+        if f.find('.png') >= 0 or f.find('.jp') >= 0:
+            self.filelist.append(os.path.join(args.dir_demo, f))
         self.filelist.sort()
-        print(f"xu test: {self.filelist}")
 
     def __getitem__(self, idx):
         filename = os.path.splitext(os.path.basename(self.filelist[idx]))[0]
