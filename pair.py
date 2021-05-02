@@ -49,7 +49,7 @@ def call_functions(args):
 def call_SuperResolution(args):
     print(f"Processing Super Resolution: Type:{args.SR_type} | Scale:{args.SR_scale}")
     commands = f"python3 SuperResolution/src/main.py --data_test Demo --scale {args.SR_scale} " \
-               f"--pre_train download --test_only --save_results --test_image {args.test_image}"
+               f"--pre_train download --test_only --save_results --test_image {args.test_image} --reset"
     # os.system("cd SuperResolution/src/")
     os.system(commands)
 
