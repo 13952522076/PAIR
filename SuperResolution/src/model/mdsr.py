@@ -3,8 +3,8 @@ from model import common
 import torch.nn as nn
 
 url = {
-    'r16f64': 'https://cv.snu.ac.kr/research/EDSR/models/mdsr_baseline-a00cab12.pt',
-    'r80f64': 'https://cv.snu.ac.kr/research/EDSR/models/mdsr-4a78bedf.pt'
+    'r16f64': 'http://cv.snu.ac.kr/research/EDSR/models/mdsr_baseline-a00cab12.pt',
+    'r80f64': 'http://cv.snu.ac.kr/research/EDSR/models/mdsr-4a78bedf.pt'
 }
 
 def make_model(args, parent=False):
