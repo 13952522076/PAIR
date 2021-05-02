@@ -46,8 +46,8 @@ def call_functions(args):
 
 def call_SuperResolution(args):
     print(f"Processing Super Resolution: Type:{args.SR_type} | Scale:{args.SR_scale}")
-    commands = f"python3 SuperResolution/src/main.py --data_test Demo --scale {args.SR_type} --pre_train download --test_only --save_results"
-    os.system(commands)
+    commands = f"python3 main.py --data_test Demo --scale {args.SR_type} --pre_train download --test_only --save_results"
+    os.system("cd SuperResolution/src/")
 
 def call_Deblocking(args):
     print(f"Processing Deblocking: ")
