@@ -52,6 +52,8 @@ def call_SuperResolution(args):
                f"--pre_train download --test_only --save_results --test_image {args.test_image} --reset"
     # os.system("cd SuperResolution/src/")
     os.system(commands)
+    os.system("mv SuperResolution/experiment/test/results-Demo/* outputs/")
+
 
 def call_Deblocking(args):
     print(f"Processing Deblocking: ")
