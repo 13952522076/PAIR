@@ -88,6 +88,7 @@ class Trainer():
                 d.dataset.set_scale(idx_scale)
                 for lr, hr, filename in tqdm(d, ncols=80):
                     lr, hr = self.prepare(lr, hr)
+                    lr = lr[:, :3, :, :]
                     sr = self.model(lr, idx_scale)
                     sr = utility.quantize(sr, self.args.rgb_range)
 
