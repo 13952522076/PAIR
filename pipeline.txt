@@ -1,0 +1,8 @@
+Pipeline:
+Input:
+--mode:  ordered selection,  one or many of [Deblocking, Denoising, CompressionArtifactRemoval，ScratchRemoval, FaceEnhancement, ImageQualityEnhance, SuperResolution]
+--SRtype: select one of [PSNR, perception, balanced]
+--SRscale: select one of [2,3,4]
+
+Output:
+generated image of each component (with order), a final output.
