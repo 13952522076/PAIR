@@ -47,7 +47,7 @@ def call_functions(args):
 
 
 def call_SuperResolution(args):
-    print(f"Processing Super Resolution: Type:{args.SR_type} | Scale:{args.SR_scale}")
+    print(f"\n\n\n\n\n======>>> Processing Super Resolution: Type:{args.SR_type} | Scale:{args.SR_scale}")
     commands = f"python3 SuperResolution/src/main.py --data_test Demo --scale {args.SR_scale} " \
                f"--pre_train download --test_only --save_results --test_image {args.test_image} --reset"
     # os.system("cd SuperResolution/src/")
@@ -55,24 +55,25 @@ def call_SuperResolution(args):
     os.system("mv SuperResolution/experiment/test/results-Demo/* outputs/")
 
 
+
 def call_Deblocking(args):
-    print(f"Processing Deblocking: ")
+    print(f"\n\n\n\n\n======>>> Processing Deblocking: ")
 
 def call_Denoising(args):
-    print(f"Processing Denoising: ")
+    print(f"\n\n\n\n\n======>>> Processing Denoising: ")
 
 def call_CompressionArtifactRemoval(args):
-    print(f"Processing Compression Artifact Removal: ")
+    print(f"\n\n\n\n\n======>>> Processing Compression Artifact Removal: ")
 
 def call_ScratchRemoval(args):
-    print(f"Processing Scratch Removal: ")
+    print(f"\n\n\n\n\n======>>> Processing Scratch Removal: ")
 
 def call_FaceEnhancement(args):
-    print(f"Processing FaceEn hancement: ")
+    print(f"\n\n\n\n\n======>>> Processing FaceEn hancement: ")
 
 
 def call_ImageQualityEnhance(args):
-    print(f"Processing Image Quality Enhance: ")
+    print(f"\n\n\n\n\n======>>> Processing Image Quality Enhance: ")
 
 def main():
     args = parse_args()

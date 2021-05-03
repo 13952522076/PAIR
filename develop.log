@@ -1,0 +1,5 @@
+May/2/2021:
+implemented SR with different scale.
+cd: /home/xuma/PAIR
+Test: python3 pair.py --test_image ./images/84.png --SR_scale 4
+
