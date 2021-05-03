@@ -3,3 +3,45 @@ implemented SR with different scale.
 cd: /home/xuma/PAIR
 Test: python3 pair.py --test_image ./images/84.png --SR_scale 4
 
+
+
+
+
+
+----------------Chat history----------------------------------
+some references might be useful here:
+image denoising & enhancement https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life
+blind super-resolution (SR+ denoising) https://github.com/cszn/BSRGAN
+(upscale at continous scale) https://github.com/SHI-Labs/UltraSR-Arbitrary-Scale-Super-Resolution
+(image quality enhancement) https://arxiv.org/abs/1704.02470[ check their newer version & follow-up on this]
+
+Dataset
+https://www.dropbox.com/s/luhh326xj98eu9l/Upscale%20test%20set%20150.zip?dl=0
+
+
+理想的途径【充分展示 本群的强大之处】：
+1. evaluate current solutions and know what they are doing (and the competitors are doing, [let's enhance io] [topaz solutions] etc., can be provided by the Picsart team)
+2. provide a model that is much better than the current solution
+3. share the solution at some point of time
+
+
+PAIR-Upscaling Project
+https://docs.google.com/document/d/1E7Ye9OE1cMjq-sqPS3wlXeUO4mlnygCwxmXdw1XAJDM/edit
+
+
+some references might be useful here:
+image denoising & enhancement https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life
+blind super-resolution (SR+ denoising) https://github.com/cszn/BSRGAN
+(upscale at continous scale) https://github.com/SHI-Labs/UltraSR-Arbitrary-Scale-Super-Resolution
+(image quality enhancement) https://arxiv.org/abs/1704.02470[ check their newer version & follow-up on this]
+
+
+competitive products:
+https://letsenhance.io/
+https://www.topazlabs.com/video-enhance-ai
+https://apps.apple.com/us/app/remini-ai-photo-enhancer/id1470373330
+[potentially future compeitors: Adobe]
+
+Picsart's product:
+https://picsart.com/image-upscale & API
+(I can get results for the above and share when ready, but everyone can go and play with their products)

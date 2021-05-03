@@ -107,19 +107,5 @@ venv.bak/
 .vscode
 .idea
 
-# custom
-*.pkl
-*.pkl.json
-*.log.json
-work_dirs/
-exps/
-*~
 
-# Pytorch
-*.pth
 
-# demo
-/data/scannet/scans/
-/data/sunrgbd/OFFICIAL_SUNRGBD/
-*.obj
-*.ply
