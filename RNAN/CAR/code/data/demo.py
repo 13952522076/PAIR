@@ -21,7 +21,7 @@ class Demo(data.Dataset):
 
         self.filelist = []
         # Xu updated
-        for f in os.listdir(args.apath):
+        for f in os.listdir(apath):
             if f.find('.png') >= 0 or f.find('.jp') >= 0:
                 self.filelist.append(os.path.join(args.dir_demo, f))
         self.filelist.sort()
