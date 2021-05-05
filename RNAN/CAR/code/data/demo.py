@@ -16,10 +16,12 @@ class Demo(data.Dataset):
         self.idx_scale = 0
         self.train = False
         self.benchmark = benchmark
+        self.noise_level = args.noise_level
+        apath = args.testpath + '/' + args.testset + '/Q' + str(self.noise_level[0])
 
         self.filelist = []
         # Xu updated
-        for f in os.listdir(args.dir_demo):
+        for f in os.listdir(args.apath):
             if f.find('.png') >= 0 or f.find('.jp') >= 0:
                 self.filelist.append(os.path.join(args.dir_demo, f))
         self.filelist.sort()
