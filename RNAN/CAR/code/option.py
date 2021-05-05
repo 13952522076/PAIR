@@ -162,6 +162,8 @@ template.set_template(args)
 
 args.scale = list(map(lambda x: int(x), args.scale.split('+')))
 args.noise_level = list(map(lambda x: int(x), args.noise_level.split('+')))
+args.data_train = args.data_train.split('+')
+args.data_test = args.data_test.split('+')
 
 if args.epochs == 0:
     args.epochs = 1e8
