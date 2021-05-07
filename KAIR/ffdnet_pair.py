@@ -124,6 +124,7 @@ def main():
     print(f"need_H: {need_H}")
 
     for idx, img in enumerate(L_paths):
+        print(f"idx: {idx}   img: {img}")
 
         # ------------------------------------
         # (1) img_L
