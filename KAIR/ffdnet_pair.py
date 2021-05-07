@@ -45,17 +45,12 @@ def parse_args():
 
 
 def main():
-
-    # ----------------------------------------
-    # Preparation
-    # ----------------------------------------
     args = parse_args()
     noise_level_img = args.ID_noise                 # noise level for noisy image
     noise_level_model = noise_level_img  # noise level for model
     model_name = args.ID_model           # 'ffdnet_gray' | 'ffdnet_color' | 'ffdnet_color_clip' | 'ffdnet_gray_clip'
     testset_name = 'CBSD68'               # test set,  'bsd68' | 'cbsd68' | 'set12'
     need_degradation = True              # default: True
-    show_img = False                     # default: False
 
 
 
@@ -75,35 +70,10 @@ def main():
     else:
         use_clip = False
     model_pool = 'model_zoo'  # fixed
-    testsets = 'testsets'     # fixed
-    results = 'results'       # fixed
-    result_name = testset_name + '_' + model_name
-    border = sf if task_current == 'sr' else 0     # shave boader to calculate PSNR and SSIM
     model_path = os.path.join(model_pool, model_name+'.pth')
 
-    # ----------------------------------------
-    # L_path, E_path, H_path
-    # ----------------------------------------
 
-    # L_path = os.path.join(testsets, testset_name) # L_path, for Low-quality images
-    # print(f"L_path: {L_path}")
-    # H_path = L_path                               # H_path, for High-quality images
-    # E_path = os.path.join(results, result_name)
-    # print(f"E_path: {E_path}")# E_path, for Estimated images
-    # util.mkdir(E_path)
-    #
-    # if H_path == L_path:
-    #     need_degradation = True
-    # logger_name = result_name
-    # utils_logger.logger_info(logger_name, log_path=os.path.join(E_path, logger_name+'.log'))
-    # logger = logging.getLogger(logger_name)
-
-    # need_H = True if H_path is not None else False
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-    # ----------------------------------------
-    # load model
-    # ----------------------------------------
 
     from models.network_ffdnet import FFDNet as net
     model = net(in_nc=n_channels, out_nc=n_channels, nc=nc, nb=nb, act_mode='R')
@@ -112,27 +82,9 @@ def main():
     for k, v in model.named_parameters():
         v.requires_grad = False
     model = model.to(device)
-    # logger.info('Model path: {:s}'.format(model_path))
 
-    # test_results = OrderedDict()
-    # test_results['psnr'] = []
-    # test_results['ssim'] = []
-
-    # logger.info('model_name:{}, model sigma:{}, image sigma:{}'.format(model_name, noise_level_img, noise_level_model))
-    # logger.info(L_path)
-    # L_paths = util.get_image_paths(L_path)
-    # print(f"L_paths: {L_paths}")
-    # H_paths = util.get_image_paths(H_path) if need_H else None
-    # print(f"need_H: {need_H}")
-
-    # for idx, img in enumerate(L_paths):
-
-        # ------------------------------------
-        # (1) img_L
-        # ------------------------------------
 
     img_name, ext = os.path.splitext(args.test_image)
-    # logger.info('{:->4d}--> {:>10s}'.format(idx+1, img_name+ext))
     img_L = util.imread_uint(args.test_image, n_channels=n_channels)
     img_L = util.uint2single(img_L)
 
@@ -142,49 +94,20 @@ def main():
         if use_clip:
             img_L = util.uint2single(util.single2uint(img_L))
 
-    # util.imshow(util.single2uint(img_L), title='Noisy image with noise level {}'.format(noise_level_img)) if show_img else None
-
     img_L = util.single2tensor4(img_L)
     img_L = img_L.to(device)
 
     sigma = torch.full((1,1,1,1), noise_level_model/255.).type_as(img_L)
 
-    # ------------------------------------
-    # (2) img_E
-    # ------------------------------------
+
 
     img_E = model(img_L, sigma)
     img_E = util.tensor2uint(img_E)
 
-    # if need_H:
-    #
-    #     # --------------------------------
-    #     # (3) img_H
-    #     # --------------------------------
-    #     img_H = util.imread_uint(H_paths[idx], n_channels=n_channels)
-    #     img_H = img_H.squeeze()
-    #
-    #     # --------------------------------
-    #     # PSNR and SSIM
-    #     # --------------------------------
-    #
-    #     psnr = util.calculate_psnr(img_E, img_H, border=border)
-    #     ssim = util.calculate_ssim(img_E, img_H, border=border)
-    #     test_results['psnr'].append(psnr)
-    #     test_results['ssim'].append(ssim)
-    #     logger.info('{:s} - PSNR: {:.2f} dB; SSIM: {:.4f}.'.format(img_name+ext, psnr, ssim))
-    #     util.imshow(np.concatenate([img_E, img_H], axis=1), title='Recovered / Ground-truth') if show_img else None
-    #
-    # # ------------------------------------
-    # # save results
-    # # ------------------------------------
+    save_path = os.path.join(args.ID_savepath, os.path.split(img_name)[1]+args.ID_model+ext)
+    util.imsave(img_E, save_path)
+    print(f"Denoised image is saved to {save_path}")
 
-    util.imsave(img_E, os.path.join(args.ID_savepath, os.path.split(img_name)[1]+args.ID_model+ext))
-
-    # if need_H:
-    #     ave_psnr = sum(test_results['psnr']) / len(test_results['psnr'])
-    #     ave_ssim = sum(test_results['ssim']) / len(test_results['ssim'])
-    #     logger.info('Average PSNR/SSIM(RGB) - {} - PSNR: {:.2f} dB; SSIM: {:.4f}'.format(result_name, ave_psnr, ave_ssim))
 
 if __name__ == '__main__':
 
