@@ -104,7 +104,7 @@ def main():
     img_E = model(img_L, sigma)
     img_E = util.tensor2uint(img_E)
 
-    save_path = os.path.join(args.ID_savepath, os.path.split(img_name)[1]+args.ID_model+ext)
+    save_path = os.path.join(args.ID_savepath, os.path.split(img_name)[1]+"_denoising"+ext)
     util.imsave(img_E, save_path)
     print(f"Denoised image is saved to {save_path}")
 
