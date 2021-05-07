@@ -38,7 +38,7 @@ def parse_args():
                         help='image denoising noise level')
     parser.add_argument('--ID_model', type=str, default="ffdnet_color",
                         help='input image')
-    parser.add_argument('--ID_savepath', type=str, required=True, default="./outputs/",
+    parser.add_argument('--ID_savepath', type=str, default="./outputs/",
                         help='save path for Image denosing result.')
 
     return parser.parse_args()
