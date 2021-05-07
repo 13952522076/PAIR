@@ -84,8 +84,10 @@ def main():
     # ----------------------------------------
 
     L_path = os.path.join(testsets, testset_name) # L_path, for Low-quality images
+    print(f"L_path: {L_path}")
     H_path = L_path                               # H_path, for High-quality images
-    E_path = os.path.join(results, result_name)   # E_path, for Estimated images
+    E_path = os.path.join(results, result_name)
+    print(f"E_path: {E_path}")# E_path, for Estimated images
     util.mkdir(E_path)
 
     if H_path == L_path:
@@ -117,7 +119,9 @@ def main():
     logger.info('model_name:{}, model sigma:{}, image sigma:{}'.format(model_name, noise_level_img, noise_level_model))
     logger.info(L_path)
     L_paths = util.get_image_paths(L_path)
+    print(f"L_paths: {L_paths}")
     H_paths = util.get_image_paths(H_path) if need_H else None
+    print(f"need_H: {need_H}")
 
     for idx, img in enumerate(L_paths):
 
