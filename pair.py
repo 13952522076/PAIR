@@ -25,6 +25,12 @@ def parse_args():
     parser.add_argument('--SR_scale', default=2, type=int, choices=[2, 3, 4],
                         help='super resolution upscale factor')
 
+    # Image Denoising parameters
+    parser.add_argument('--ID_noise', default=30, type=int, choices=range(0, 101),
+                        help='image denoising noise level')
+    parser.add_argument('--ID_model', type=str, default="ffdnet_color",
+                        help='denoising model')
+
 
     return parser.parse_args()
 
@@ -61,6 +67,9 @@ def call_Deblocking(args):
 
 def call_Denoising(args):
     print(f"\n\n\n\n\n======>>> Processing Denoising: ")
+    commands = f"python3 KAIR/ffdnet_pair.py --test_image {args.test_image} --ID_noise {args.ID_noise}"
+    os.system(commands)
+
 
 def call_CompressionArtifactRemoval(args):
     print(f"\n\n\n\n\n======>>> Processing Compression Artifact Removal: ")

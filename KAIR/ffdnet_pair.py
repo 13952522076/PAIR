@@ -37,7 +37,7 @@ def parse_args():
     parser.add_argument('--ID_noise', default=30, type=int,  choices=range(0,101),
                         help='image denoising noise level')
     parser.add_argument('--ID_model', type=str, default="ffdnet_color",
-                        help='input image')
+                        help='denoising model')
     parser.add_argument('--ID_savepath', type=str, default="/workspace/xuma/PAIR/outputs/",
                         help='save path for Image denosing result.')
 
