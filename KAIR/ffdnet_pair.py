@@ -69,7 +69,7 @@ def main():
         use_clip = True       # clip the intensities into range of [0, 1]
     else:
         use_clip = False
-    model_pool = './model_zoo'  # fixed
+    model_pool = '/workspace/xuma/PAIR/KAIR/model_zoo'  # fixed
     model_path = os.path.join(model_pool, model_name+'.pth')
 
 
