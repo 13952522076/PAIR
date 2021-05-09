@@ -15,8 +15,12 @@ def main():
         description='Test Super Resolution Models')
     parser.add_argument(
         '-opt', type=str, required=True, help='Path to options JSON file.')
+    parser.add_argument(
+        '-save_folder', type=str, required=True, help='Folder to save output images')
     opt = option.parse(parser.parse_args().opt)
     opt = option.dict_to_nonedict(opt)
+    print(f"save_folder: {parser.parse_args().save_folder}")
+
 
     # initial configure
     scale = opt['scale']
@@ -25,7 +29,7 @@ def main():
     model_name = network_opt['which_model'].upper()
 
     # create folders
-    util.mkdir_and_rename(opt['path']['res_root'])
+    # util.mkdir_and_rename(opt['path']['res_root'])
     option.save(opt)
 
     # create test dataloader
