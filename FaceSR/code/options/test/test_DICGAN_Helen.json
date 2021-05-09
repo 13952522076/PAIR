@@ -12,8 +12,8 @@
         "test_Helen": {
             "mode": "LRHR",
             "name": "Helen",
-            "dataroot_HR": "/home/jzy/datasets/SR_datasets/face_test/Helen/HR",
-            "dataroot_LR": "/home/jzy/datasets/SR_datasets/face_test/Helen/LR",
+            "dataroot_HR": "/workspace/xuma/Helen_test/HR",
+            "dataroot_LR": "/workspace/xuma/Helen_test/LR",
             "data_type": "img",
             "LR_size": 16,
             "HR_size": 128
@@ -32,7 +32,7 @@
         "num_fusion_block": 7
     },
     "solver": {
-        "pretrained_path": "../experiments/DIC_in3f48_x8_DICGAN_Helen/epochs/step_0100000_ckp.pth"
+        "pretrained_path": "../models/DICGAN_Helen.pth"
     },
     "path": {
       "root": "../"
