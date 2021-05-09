@@ -12,7 +12,7 @@
         "test_Helen": {
             "mode": "LR",
             "name": "Helen",
-            "dataroot_LR": "../test_LR/",
+            "dataroot_LR": "/workspace/xuma/PAIR/FaceSR/test_LR/",
             "data_type": "img",
             "LR_size": 16,
             "HR_size": 128
