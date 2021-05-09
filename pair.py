@@ -83,7 +83,7 @@ def call_FaceEnhancement(args):
     os.system(f"rm FaceSR/test_LR/*")
     # copy input image to the temp folder for building images.
     os.system(f"cp {args.test_image} FaceSR/test_LR/")
-    os.system("python3 FaceSR/code/test_pair.py -opt options/test/test_PAIR.json "
+    os.system("python3 FaceSR/code/test_pair.py -opt FaceSR/code/options/test/test_PAIR.json "
               "-save_folder /workspace/xuma/PAIR/outputs")
 
 
