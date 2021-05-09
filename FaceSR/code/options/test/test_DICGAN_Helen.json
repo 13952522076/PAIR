@@ -32,7 +32,7 @@
         "num_fusion_block": 7
     },
     "solver": {
-        "pretrained_path": "models/DICGAN_Helen.pth"
+        "pretrained_path": "../models/DICGAN_Helen.pth"
     },
     "path": {
       "root": "../"
