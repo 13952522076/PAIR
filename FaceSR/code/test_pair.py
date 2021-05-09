@@ -19,7 +19,7 @@ def main():
         '-save_folder', type=str, required=True, help='Folder to save output images')
     opt = option.parse(parser.parse_args().opt)
     opt = option.dict_to_nonedict(opt)
-    print(f"save_folder: {parser.parse_args().save_folder}")
+    save_folder = parser.parse_args().save_folder
 
 
     # initial configure
@@ -39,20 +39,20 @@ def main():
         test_set = create_dataset(dataset_opt)
         test_loader = create_dataloader(test_set, dataset_opt)
         test_loaders.append(test_loader)
-        print('===> Test Dataset: [%s]   Number of images: [%d]' %
-              (dataset_opt['name'], len(test_set)))
+        # print('===> Test Dataset: [%s]   Number of images: [%d]' %
+        #       (dataset_opt['name'], len(test_set)))
         bm_names.append(dataset_opt['name'])
 
     # create solver (and load model)
     solver = create_solver(opt)
     # Test phase
-    print('===> Start Test')
-    print("==================================================")
-    print("Method: %s || Scale: %d || Degradation: %s" % (model_name, scale,
-                                                          degrad))
+    # print('===> Start Test')
+    # print("==================================================")
+    # print("Method: %s || Scale: %d || Degradation: %s" % (model_name, scale,
+    #                                                       degrad))
 
     for bm, test_loader in zip(bm_names, test_loaders):
-        print("Test set : [%s]" % bm)
+        # print("Test set : [%s]" % bm)
 
         sr_list = []
         path_list = []
@@ -70,15 +70,15 @@ def main():
 
             path_list.append(os.path.basename(batch['LR_path'][0]))
 
-        # save SR results for further evaluation on MATLAB
-        save_img_path = os.path.join(opt['path']['res_root'], bm)
+        # # save SR results for further evaluation on MATLAB
+        # save_img_path = os.path.join(opt['path']['res_root'], bm)
+        #
+        # print("===> Saving SR images of [%s]... Save Path: [%s]\n" %
+        #       (bm, save_img_path))
 
-        print("===> Saving SR images of [%s]... Save Path: [%s]\n" %
-              (bm, save_img_path))
-
-        if not os.path.exists(save_img_path): os.makedirs(save_img_path)
+        # if not os.path.exists(save_img_path): os.makedirs(save_img_path)
         for img, name in zip(sr_list, path_list):
-            imageio.imwrite(os.path.join(save_img_path, name), img)
+            imageio.imwrite(os.path.join(save_folder, name), img)
 
     print("==================================================")
     print("===> Finished !")
