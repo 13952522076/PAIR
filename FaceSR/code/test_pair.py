@@ -78,7 +78,8 @@ def main():
 
         # if not os.path.exists(save_img_path): os.makedirs(save_img_path)
         for img, name in zip(sr_list, path_list):
-            print(f"name is: {name}")
+            file_name, file_ext = os.path.splitext(name)
+            name = file_name+"_FaceEnhancement" + file_ext
             imageio.imwrite(os.path.join(save_folder, name), img)
 
     print("==================================================")
