@@ -30,7 +30,7 @@ def main():
 
     # create folders
     # util.mkdir_and_rename(opt['path']['res_root'])
-    option.save(opt)
+    # option.save(opt)
 
     # create test dataloader
     bm_names = []
