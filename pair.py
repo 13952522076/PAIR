@@ -79,6 +79,8 @@ def call_ScratchRemoval(args):
 
 def call_FaceEnhancement(args):
     print(f"\n\n\n\n\n======>>> Processing FaceEn hancement: ")
+    # empty the test_LR folder
+    os.system(f"rm FaceSR/test_LR/*")
     # copy input image to the temp folder for building images.
     os.system(f"cp {args.test_image} FaceSR/test_LR/")
 
