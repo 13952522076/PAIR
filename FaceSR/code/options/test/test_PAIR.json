@@ -31,7 +31,7 @@
         "num_fusion_block": 7
     },
     "solver": {
-        "pretrained_path": "/workspace/xuma/PAIR/FaceSR/models/DICGAN_Helen.pth"
+        "pretrained_path": "/workspace/xuma/PAIR/FaceSR/models/DICGAN_CelebA.pth"
     },
     "path": {
       "root": "../"
