@@ -1,5 +1,5 @@
 {
-    "name": "Helen_GAN",
+    "name": "CelebA_GAN",
     "mode": "sr_align_gan",
     "degradation": "BI",
     "gpu_ids": [0],
@@ -11,7 +11,7 @@
     "datasets": {
         "test_Helen": {
             "mode": "LR",
-            "name": "Helen",
+            "name": "CelebA",
             "dataroot_LR": "/workspace/xuma/PAIR/FaceSR/test_LR/",
             "data_type": "img",
             "LR_size": 16,
