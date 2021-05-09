@@ -78,6 +78,7 @@ def main():
 
         # if not os.path.exists(save_img_path): os.makedirs(save_img_path)
         for img, name in zip(sr_list, path_list):
+            print(f"name is: {name}")
             imageio.imwrite(os.path.join(save_folder, name), img)
 
     print("==================================================")
