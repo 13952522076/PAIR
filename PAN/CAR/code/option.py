@@ -24,6 +24,11 @@ parser.add_argument('--data_train', type=str, default='DIV2K',
                     help='train dataset name')
 parser.add_argument('--data_test', type=str, default='DIV2K',
                     help='test dataset name')
+
+# Xu added
+parser.add_argument('--test_image', type=str, required=True,
+                    help='input image')
+
 parser.add_argument('--data_range', type=str, default='1-800/801-805',
                     help='train/test data range')
 parser.add_argument('--ext', type=str, default='sep',
