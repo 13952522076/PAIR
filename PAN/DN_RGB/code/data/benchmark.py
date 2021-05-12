@@ -13,7 +13,6 @@ class Benchmark(srdata.SRData):
         super(Benchmark, self).__init__(
             args, name=name, train=train, benchmark=True
         )
-        print(f"running benchmark")
 
     def _set_filesystem(self, dir_data):
         self.apath = os.path.join(dir_data, 'benchmark', self.name)
