@@ -50,6 +50,7 @@ class PANET(nn.Module):
 
     def forward(self, x):
         x = self.sub_mean(x)
+        print(x.shape)
         x = self.head(x)
         
         res = self.body(x)
