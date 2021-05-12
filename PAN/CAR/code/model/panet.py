@@ -49,7 +49,7 @@ class PANET(nn.Module):
         self.tail = nn.Sequential(*m_tail)
 
     def forward(self, x):
-        x = self.sub_mean(x)
+        # x = self.sub_mean(x)
         print(x.shape)
         x = self.head(x)
         
@@ -58,7 +58,7 @@ class PANET(nn.Module):
         res += x
 
         x = self.tail(res)
-        x = self.add_mean(x)
+        # x = self.add_mean(x)
 
         return x 
 
