@@ -53,7 +53,7 @@ if __name__ == '__main__':
         #input.save(os.path.join(opt.outputs_dir, '{}_jpeg_q{}.png'.format(filename, opt.jpeg_quality)))
 
         input = transforms.ToTensor()(input).unsqueeze(0).to(device)
-        output_path = os.path.join(opt.outputs_dir, '{}-{}.jpeg'.format(filename.split("/")[-1].split(".")[0], "edar"))
+        output_path = os.path.join(opt.outputs_dir, '{}-{}.png'.format(filename.split("/")[-1].split(".")[0], "edar"))
         
         if not os.path.exists(output_path):
             with torch.no_grad():
