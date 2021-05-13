@@ -37,7 +37,7 @@ if __name__ == '__main__':
         filenames = [os.path.join(opt.input_dir, file) for file in os.listdir(opt.input_dir) if file.endswith(("ppm", "jpeg", "png", "jpg"))]
         print(filenames)
     else:
-        filenames = opt.image_path
+        filenames = [opt.image_path]
         
     if not os.path.exists(opt.outputs_dir):
         os.makedirs(opt.outputs_dir)
