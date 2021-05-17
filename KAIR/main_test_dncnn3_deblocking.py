@@ -66,7 +66,7 @@ def main():
     n_channels = 3            # set 1 for grayscale image, set 3 for color image
 
 
-    x8 = False                       # default: False, x8 to boost performance
+    x8 = True                       # default: False, x8 to boost performance
     testsets = 'testsets'     # fixed
     results = 'results'       # fixed
     result_name = testset_name + '_' + model_name # fixed
