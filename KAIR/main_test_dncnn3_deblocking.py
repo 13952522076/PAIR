@@ -63,7 +63,7 @@ def main():
 
     # important!
     testset_name = 'deblock'    # test set, low-quality grayscale/color JPEG images
-    n_channels = 1            # set 1 for grayscale image, set 3 for color image
+    n_channels = 3            # set 1 for grayscale image, set 3 for color image
 
 
     x8 = False                       # default: False, x8 to boost performance
