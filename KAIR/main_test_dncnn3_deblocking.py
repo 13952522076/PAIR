@@ -62,7 +62,7 @@ def main():
     model_name = 'dncnn3'     # 'dncnn3'- can be used for blind Gaussian denoising, JPEG deblocking (quality factor 5-100) and super-resolution (x234)
 
     # important!
-    testset_name = 'bsd68'    # test set, low-quality grayscale/color JPEG images
+    testset_name = 'deblock'    # test set, low-quality grayscale/color JPEG images
     n_channels = 1            # set 1 for grayscale image, set 3 for color image
 
 
