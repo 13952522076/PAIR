@@ -14,8 +14,8 @@
             "name": "CelebA",
             "dataroot_LR": "/workspace/xuma/PAIR/FaceSR/test_LR/",
             "data_type": "img",
-            "LR_size": 16,
-            "HR_size": 128
+            "LR_size": 64,
+            "HR_size": 512
         }
     },
     "networks": {
